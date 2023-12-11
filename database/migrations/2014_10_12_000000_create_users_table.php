@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // add new column to set role to the user (set deafult as user)
+            $table->enum('role', ['user', 'admin', 'seller'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

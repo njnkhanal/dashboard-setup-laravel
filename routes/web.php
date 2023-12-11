@@ -12,7 +12,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // for admin dashboard (prefix is used like (127.0.0.1:8000/admin/dashboard))
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
 });
 
