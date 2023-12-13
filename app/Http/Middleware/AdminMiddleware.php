@@ -26,6 +26,8 @@ class AdminMiddleware
             if ($role == 'admin') {
                 // if success then return next request
                 return $next($request);
+            } else {
+                return redirect(route('home'));
             }
         }
         // show not found page if not logined
