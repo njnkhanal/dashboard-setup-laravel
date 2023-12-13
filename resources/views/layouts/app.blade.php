@@ -76,6 +76,13 @@
                                     </form>
                                 </div>
                             </li>
+                            {{-- if loggined user has role admin then show admin dashboar dlink --}}
+                            @if (Auth::user()->role == 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="{{ route('admin.dashboard') }}">{{ __('Admin Dashboard') }}</a>
+                                </li>
+                            @endif
                         @endguest
                     </ul>
                 </div>
