@@ -13,3 +13,8 @@ Ecommerce
 -check the role is admin or not
 -define that middleware to kernel.php as admin
 -use in web.php
+
+# crud
+
+    - manage user (roles)
+    - first create model, migration, controller, resources (php artisan make:model User -mcr for controller only php artisan make:controller UserController)
