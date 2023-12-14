@@ -41,7 +41,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['nullable', 'numeric'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,svg,gif', 'max:2048'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        // set all data from request to the variable $data
+        $data = $request->all();
+
+        // store image 
+        $image_title = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imgpath = 'upload/user/';
+            $imgname = now()->format('ymdhis') . rand(10000, 99999) . '.' . $img->getClientOriginalExtension();
+            $img->move($imgpath, $imgname);
+            $image_title = $imgpath . $imgname;
+        }
+
+        // set image name 
+        $data['image'] = $image_title;
+
+        // create data to the table
+        User::create($data);
+
+        return redirect(route('user.index'))->with('success', 'User Created Successfully!');
     }
 
     /**

@@ -23,7 +23,7 @@
             @include('Admin.Layouts.Breadcumb')
 
             <div class="page-content">
-
+                @include('Admin.Layouts.message')
                 <!-- Body contents -->
                 @yield('main-content')
 

@@ -13,9 +13,18 @@
         <div class="side-menu">
             <ul>
                 <li>
-                    <a href="" class="active">
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="{{ Route::current()->getName() == 'admin.dashboard' ? 'active' : '' }}">
                         <span class="las la-home"></span>
                         <small>Dashboard</small>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('user.index') }}"
+                        class="{{ Route::current()->getName() == 'user.index' ? 'active' : '' }}">
+                        <span class="las la-users"></span>
+                        <small>Users</small>
                     </a>
                 </li>
                 <li>
@@ -24,31 +33,6 @@
                         <small>Profile</small>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <span class="las la-envelope"></span>
-                        <small>Mailbox</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-clipboard-list"></span>
-                        <small>Projects</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-shopping-cart"></span>
-                        <small>Orders</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-tasks"></span>
-                        <small>Tasks</small>
-                    </a>
-                </li>
-
             </ul>
         </div>
     </div>

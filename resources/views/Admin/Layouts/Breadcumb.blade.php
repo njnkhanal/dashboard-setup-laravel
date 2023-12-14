@@ -1,4 +1,5 @@
 <div class="page-header">
-    <h1>Dashboard</h1>
-    <small>Home / Dashboard</small>
+    {{-- show segment 2 as the title of bread cumb --}}
+    <h1>{{ Str::ucfirst(Request::segment(2)) }}</h1>
+    <small>Home / {{ Str::ucfirst(Request::segment(2)) }}</small>
 </div>
